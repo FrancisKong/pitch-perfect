@@ -26,17 +26,16 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    func configureUI(recording: Bool) {
+        recordButton.isEnabled = !recording
+        stopRecordingButton.isEnabled = recording
+        recordingLabel.text = recording ? "Recording" : "Tap to record"
     }
 
 
     @IBAction func startRecording(_ sender: Any) {
-        recordButton.isEnabled = false;
-        stopRecordingButton.isEnabled = true;
-        recordingLabel.text = "Recording"
+        configureUI(recording: true)
         let dirPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
         let recordName = "recordVoice.wav"
         let filePath = URL(string: [dirPath, recordName].joined(separator: "/"))
@@ -53,9 +52,7 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
     }
     
     @IBAction func stopRecording(_ sender: Any) {
-        recordingLabel.text = "Tap to record"
-        recordButton.isEnabled = true;
-        stopRecordingButton.isEnabled = false;
+        configureUI(recording: false)
         audioRecorder.stop()
         let session = AVAudioSession.sharedInstance()
         try! session.setActive(false)
@@ -65,7 +62,9 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
         if flag {
             performSegue(withIdentifier: "stopRecording", sender: audioRecorder.url)
         } else {
-            print("Somethins is wrong")
+            let alert = UIAlertController(title: "Recording Failed", message: "Recording Failed, please try again", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Recording Failed", style: .default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
         }
     }
     

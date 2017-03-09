@@ -22,40 +22,51 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="abb-pK-b3k">
-                                <rect key="frame" x="110" y="256" width="155" height="155"/>
-                                <state key="normal" image="Record"/>
-                                <connections>
-                                    <action selector="startRecording:" destination="BYZ-38-t0r" eventType="touchUpInside" id="HzQ-3c-jkk"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap to Recording" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jzG-P0-3VL">
-                                <rect key="frame" x="122" y="419" width="130" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Akj-Aq-IjY">
-                                <rect key="frame" x="155" y="448" width="64" height="64"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="P8n-pU-EPj">
+                                <rect key="frame" x="66" y="191" width="243" height="284"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Akj-Aq-IjY">
+                                        <rect key="frame" x="89" y="212" width="64" height="64"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="64" id="Eo4-l2-gu2"/>
+                                            <constraint firstAttribute="height" constant="64" id="JR5-kd-1JN"/>
+                                        </constraints>
+                                        <state key="normal" image="Stop"/>
+                                        <connections>
+                                            <action selector="stopRecording:" destination="BYZ-38-t0r" eventType="touchUpInside" id="zQb-cC-KJN"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="abb-pK-b3k">
+                                        <rect key="frame" x="44" y="8" width="155" height="155"/>
+                                        <state key="normal" image="Record"/>
+                                        <connections>
+                                            <action selector="startRecording:" destination="BYZ-38-t0r" eventType="touchUpInside" id="HzQ-3c-jkk"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap to Recording" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jzG-P0-3VL">
+                                        <rect key="frame" x="56" y="171" width="130" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="64" id="Pwh-a9-FY9"/>
-                                    <constraint firstAttribute="width" constant="64" id="TRA-4j-hcH"/>
+                                    <constraint firstItem="Akj-Aq-IjY" firstAttribute="top" secondItem="jzG-P0-3VL" secondAttribute="bottom" constant="20" id="3yX-Sw-pf4"/>
+                                    <constraint firstItem="abb-pK-b3k" firstAttribute="top" secondItem="P8n-pU-EPj" secondAttribute="top" constant="8" id="BlI-L2-e4O"/>
+                                    <constraint firstAttribute="width" constant="243" id="Shm-Qt-pSQ"/>
+                                    <constraint firstItem="abb-pK-b3k" firstAttribute="centerX" secondItem="P8n-pU-EPj" secondAttribute="centerX" id="WFu-GT-bgO"/>
+                                    <constraint firstAttribute="height" constant="284" id="crq-dU-dp9"/>
+                                    <constraint firstItem="jzG-P0-3VL" firstAttribute="top" secondItem="abb-pK-b3k" secondAttribute="bottom" constant="8" id="gJK-Ha-nRe"/>
+                                    <constraint firstItem="jzG-P0-3VL" firstAttribute="centerX" secondItem="abb-pK-b3k" secondAttribute="centerX" id="lgZ-PB-yb6"/>
+                                    <constraint firstItem="Akj-Aq-IjY" firstAttribute="centerX" secondItem="jzG-P0-3VL" secondAttribute="centerX" id="rAp-4p-2uu"/>
                                 </constraints>
-                                <state key="normal" image="Stop"/>
-                                <connections>
-                                    <action selector="stopRecording:" destination="BYZ-38-t0r" eventType="touchUpInside" id="zQb-cC-KJN"/>
-                                </connections>
-                            </button>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="abb-pK-b3k" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="3bA-73-huf"/>
-                            <constraint firstItem="jzG-P0-3VL" firstAttribute="centerX" secondItem="abb-pK-b3k" secondAttribute="centerX" id="3wt-zw-WJX"/>
-                            <constraint firstItem="jzG-P0-3VL" firstAttribute="top" secondItem="abb-pK-b3k" secondAttribute="bottom" constant="8" id="5SG-di-8Bm"/>
-                            <constraint firstItem="abb-pK-b3k" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="X8N-GY-3eI"/>
-                            <constraint firstItem="Akj-Aq-IjY" firstAttribute="top" secondItem="jzG-P0-3VL" secondAttribute="bottom" constant="8" id="ewY-rX-kKF"/>
-                            <constraint firstItem="Akj-Aq-IjY" firstAttribute="centerX" secondItem="jzG-P0-3VL" secondAttribute="centerX" id="lhK-r2-qlt"/>
-                            <constraint firstItem="jzG-P0-3VL" firstAttribute="top" secondItem="abb-pK-b3k" secondAttribute="bottom" constant="8" id="oFe-1o-Hbr"/>
+                            <constraint firstItem="P8n-pU-EPj" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="FQ5-7U-DQg"/>
+                            <constraint firstItem="P8n-pU-EPj" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Tsz-td-3lO"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="NKz-PG-6tQ"/>
@@ -68,7 +79,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1002" y="691"/>
+            <point key="canvasLocation" x="1000.8" y="690.40479760119945"/>
         </scene>
         <!--Play Sounds View Controller-->
         <scene sceneID="4FF-6F-OeM">
